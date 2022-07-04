@@ -180,7 +180,8 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int allOddBits(int x) {
-  return 2;
+  int d = 0xAAAAAAAA; // todos los bits impares 1
+  return !((x&d) ^ d);
 }
 /* 
  * negate - return -x 
