@@ -204,7 +204,9 @@ int negate(int x) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  return 2;
+  int min=0x30;
+  int max=0x39;
+  return (!((x+(~min+1))>>31)) & (!((max+(~x+1))>>31));
 }
 /* 
  * conditional - same as x ? y : z 
@@ -236,7 +238,8 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 4 
  */
 int logicalNeg(int x) {
-  return 2;
+  int a = ~x & (~(~x + 1));
+  return a >> 31 & 1;
 }
 /* howManyBits - return the minimum number of bits required to represent x in
  *             two's complement
